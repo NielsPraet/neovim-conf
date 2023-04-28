@@ -101,16 +101,32 @@ return {
 
             -- === configurations ===--
             dap.configurations.cpp = {
-                name = 'Launch',
-                type = 'lldb',
-                request = 'launch',
-                program = function()
-                    return vim.fn.input('Path to executable: ',
-                                        vim.fn.getcwd() .. '/', 'file')
-                end,
-                cwd = '${workspaceFolder}',
-                stopOnEntry = false,
-                args = {}
+                -- {
+                --     name = 'Launch',
+                --     type = 'lldb',
+                --     request = 'launch',
+                --     program = function()
+                --         return vim.fn.input('Path to executable: ',
+                --                             vim.fn.getcwd() .. '/', 'file')
+                --     end,
+                --     cwd = '${workspaceFolder}',
+                --     stopOnEntry = false,
+                --     args = {}
+                -- }
+                {
+                    name = 'Launch',
+                    type = 'lldb',
+                    request = 'launch',
+                    program = vim.fn.expand(
+                        "$HOME/Documents/ma1-sem2/dma/dma-3-NielsPraet/build/bin/DMAencoder"),
+                    stopOnEntry = false,
+                    args = {
+                        vim.fn.expand(
+                            '$HOME/Documents/ma1-sem2/dma/dma-3-NielsPraet/data/flower_352x288_10.yuv'),
+                        '352', '288', '1', '2', vim.fn.expand(
+                            '$HOME/Documents/ma1-sem2/dma/dma-3-NielsPraet/flower_352x288_50.yuv_1_2.bin')
+                    }
+                }
             }
 
             dap.configurations.c = dap.configurations.cpp;

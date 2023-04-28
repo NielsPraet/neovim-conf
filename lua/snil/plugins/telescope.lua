@@ -7,7 +7,16 @@ return {
         keys = {
             {'<leader>ff', '<cmd>Telescope find_files<cr>'},
             {'<leader>fg', '<cmd>Telescope live_grep<cr>'},
-            {'<leader>fh', '<cmd>Telescope help_tags<cr>'}
+            {'<leader>fh', '<cmd>Telescope help_tags<cr>'},
+            {'gr', function()
+                require('telescope.builtin').lsp_references()
+            end},
+            {
+                'gi',
+                function()
+                    require('telescope.builtin').lsp_implementations()
+                end
+            }
         }
     }, {
         'nvim-telescope/telescope-file-browser.nvim',

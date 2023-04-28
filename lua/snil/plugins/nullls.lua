@@ -5,7 +5,8 @@ return {
         ft = {
             'lua', 'make', 'cmake', 'javascript', 'javascriptreact',
             'typescript', 'typescriptreact', 'c', 'cpp', 'python', 'json',
-            'sass', 'css', 'scss', 'less', 'yaml', 'zsh', 'rust'
+            'sass', 'css', 'scss', 'less', 'yaml', 'zsh', 'rust', 'tex',
+            'javascript.jsx', 'typescript.tsx', 'html'
         },
         config = function()
             local null_ls = require('null-ls')
@@ -29,8 +30,7 @@ return {
                 diagnostics.editorconfig_checker, diagnostics.eslint_d,
                 diagnostics.ruff, diagnostics.jsonlint, diagnostics.stylelint,
                 diagnostics.tsc, diagnostics.yamllint, diagnostics.zsh,
-
-                -- formatting
+                diagnostics.chktex, -- formatting
                 formatting.beautysh, formatting.clang_format,
                 formatting.cmake_format, formatting.eslint_d,
                 formatting.fixjson, formatting.lua_format, formatting.prettierd,
